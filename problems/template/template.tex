@@ -1,0 +1,35 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+
+\section*{Problem 3}
+\textit{(Putnam 2021)}
+
+A grasshopper starts at the origin in the coordinate plane and makes a sequence of hops. Each
+hop has length 5, and after each hop the grasshopper is at a point whose coordinates are both
+integers; thus, there are 12 possible locations for the grasshopper after the first hop. What is
+the smallest number of hops needed for the grasshopper to reach the point (2021, 2021)?
+
+
+\newpage
+
+\section*{Solution}
+
+We first observe that any hop the grasshopper makes is a composition of x and y movements. Further, in order to minimise the number of hops taken, it seems sensible that each step should be non-negative in at least one of its components.
+
+Let us list every sensible movement from the origin in coordinate form:
+
+\[ \begin{pmatrix}5\\0\end{pmatrix}, \begin{pmatrix}0\\5\end{pmatrix},
+\begin{pmatrix}3\\4\end{pmatrix},
+\begin{pmatrix}-3\\4\end{pmatrix},
+\begin{pmatrix}4\\3\end{pmatrix},
+\begin{pmatrix}-4\\3\end{pmatrix}. \]
+
+
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{parskip}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+
+\section*{Problem 2}
+\textit{(INMO 1993)}
+
+A convex hexagon is a hexagon in which none of its interior angles are more than $180$ degrees.
+
+Show, by construction, that there exists a convex hexagon with the following properties
+
+\begin{enumerate}[(a)]
+\item All of its interior angle are equal
+\item Its sides are length $1,2,3,4,5,6$ in some order
+
+\end{enumerate}
+
+\newpage
+
+\section*{Solution}
+To solve this problem methodically, we notice that since the interior angles should be equal, the hexagon should have some degree of regularity. 
+
+In order to achieve this, we can use a regular shape as a stencil for our hexagon, say an equilateral triangle. This way we can, in a sense, inherit some of the regularity from the triangle
+
+It seems sensible that the longest lengths ($4,5,6$) should lie on the border of the triangle, as these would be hard to fit inside the triangle as chords.
+
+As it turns out, if we draw three more triangles within the main triangle of side lengths $1,2,3$, the sides add up nicely and we achieve our answer.
+
+\begin{center}
+\begin{tikzpicture}
+\node[regular polygon, 
+	regular polygon sides = 3,  draw,
+	minimum width = 9cm, anchor = south] (t) at (0,0) {};
+\node[anchor = north] at (t.south) {$6$};
+\node[anchor = south, yshift = 0.5cm] at (t.east) {$4$};
+\node[anchor = south, yshift = 0.5cm] at (t.west) {$5$};
+	
+\node[regular polygon, 
+	regular polygon sides = 3, 
+	draw,
+	minimum width = 3cm, anchor = north] (three) at (t.north) {};
+\node[anchor = north] at (three.south) {$3$};
+	
+
+\node[regular polygon, 
+	regular polygon sides = 3, 
+	draw,
+	minimum width = 1cm, anchor = south] (one) at (-3.46, 0) {};
+\node[anchor = south, xshift = 0.05cm] at (one.east) {$1$};
+	
+	
+\node[regular polygon, 
+	regular polygon sides = 3, 
+	draw,
+	minimum width = 2cm, anchor = south] (two) at (3.035, 0) {};
+\node[anchor = south, yshift = 0.25cm] at (two.west) {$2$};
+	
+	
+\end{tikzpicture}
+\end{center}
+
+\end{document}
